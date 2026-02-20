@@ -1,0 +1,236 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    min-height: 100vh;
+}
+
+/* Header */
+ header {
+     background: #2c3e50;
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 16px;
+     padding: 14px 20px 14px 96px;
+     position: relative;
+     letter-spacing: 1px;
+ }
+
+#headerLogo {
+    width: 60px;
+    height: auto;
+    display: block;
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Navigation Bar */
+nav {
+    background: #34495e;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: yellow;
+    transform: scale(1.1);
+}
+
+/* Sections */
+section {
+    display: none;
+    padding: 30px;
+}
+
+.active {
+    display: block;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Menu Items */
+.menu-item {
+    background: white;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    gap: 16px;
+}
+
+.menu-img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 8px;
+    background: #f3f3f3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.menu-item:hover {
+    transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2ecc71;
+}
+
+/* Order Section */
+#cart {
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+#cart li {
+    background: white;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+
+#total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Payment Section */
+#paymentSection {
+    background: rgba(255,255,255,0.95);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.payment-fields {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.payment-fields input {
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* About / Contact styling */
+#astiLogo {
+    display: block;
+    max-width: 180px;
+    width: 30%;
+    height: auto;
+    margin: 12px 0 18px 0;
+}
+
+.contact-info {
+    background: rgba(255,255,255,0.6);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.contact-info a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* About & Location */
+#about, #location {
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    #headerLogo {
+        width: 100px;
+        position: static;
+        transform: none;
+    }
+
+    .menu-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}

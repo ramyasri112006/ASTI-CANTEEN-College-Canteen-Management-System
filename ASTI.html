@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASTI CANTEEN</title>
+    <link rel="stylesheet" href="ASTI.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <img id="headerLogo" src="ASTI.png" alt="ASTI Canteen Logo">
+        <h1>ASTI CANTEEN</h1>
+        <p>College Canteen Management System</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('menu')">Menu</a>
+        <a href="#" onclick="showSection('order')">Order</a>
+        <a href="#" onclick="showSection('about')">About</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="active">
+        <h2>Welcome to ASTI CANTEEN</h2>
+        <p>
+            We provide hygienic, tasty, and affordable food for all college students and staff.
+            Enjoy fresh food at reasonable prices!
+        </p>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Menu</h2>
+
+
+        <div class="menu-item">
+            <img class="menu-img" src="Samosa.jpeg" alt="Samosa">
+            <span>Samosa - ₹15</span>
+            <button onclick="addToCart('Samosa',15)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Biryani.jpeg" alt="Biryani">
+            <span>Biryani - ₹80</span>
+            <button onclick="addToCart('Biryani',80)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="veg biryani.jpeg" alt="Veg Biryani">
+            <span>Veg Biryani - ₹70</span>
+            <button onclick="addToCart('Veg Biryani',70)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Manchurian.jpeg" alt="Manchurian">
+            <span>Manchurian - ₹60</span>
+            <button onclick="addToCart('Manchurian',60)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Cool Drinks.jpeg" alt="Cool Drinks">
+            <span>Cool Drinks - ₹20</span>
+            <button onclick="addToCart('Cool Drinks',20)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Veg puff.jpg" alt="Veg Puffs">
+            <span>Veg Puffs - ₹20</span>
+            <button onclick="addToCart('Veg Puffs',20)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Egg Puffs.jpeg" alt="Egg Puffs">
+            <span>Egg Puffs - ₹25</span>
+            <button onclick="addToCart('Egg Puffs',25)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Tea.jpeg" alt="Tea">
+            <span>Tea - ₹10</span>
+            <button onclick="addToCart('Tea',10)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Coffee.jpeg" alt="Coffee">
+            <span>Coffee - ₹15</span>
+            <button onclick="addToCart('Coffee',15)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Noodles.jpeg" alt="Noodles">
+            <span>Noodles - ₹50</span>
+            <button onclick="addToCart('Noodles',50)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            <img class="menu-img" src="Pizza.jpeg" alt="Pizza">
+            <span>Pizza - ₹90</span>
+            <button onclick="addToCart('Pizza',90)">Add</button>
+        </div>
+
+    </section>
+
+    <!-- Order Section -->
+    <section id="order">
+        <h2>Your Order</h2>
+        <ul id="cart"></ul>
+        <p id="total">Total: ₹0</p>
+        <button onclick="placeOrder()">Place Order</button>
+
+        <!-- Payment Section (hidden until placing an order) -->
+        <div id="paymentSection" class="hidden">
+            <h3>Payment Method</h3>
+
+            <div class="payment-options">
+                <label><input type="radio" name="payment" value="upi" checked onchange="updatePaymentFields()"> UPI</label>
+                <label><input type="radio" name="payment" value="card" onchange="updatePaymentFields()"> Card</label>
+                <label><input type="radio" name="payment" value="cash" onchange="updatePaymentFields()"> Cash</label>
+            </div>
+
+            <div id="upiFields" class="payment-fields">
+                <input id="upiId" type="text" placeholder="Enter UPI ID (example@bank)">
+                <button id="upiPayBtn" onclick="completePayment()">Pay</button>
+            </div>
+
+            <div id="cardFields" class="payment-fields hidden">
+                <input id="cardNumber" type="text" placeholder="Card Number">
+                <input id="cardName" type="text" placeholder="Name on Card">
+                <div style="display:flex; gap:8px;">
+                    <input id="cardExpiry" type="text" placeholder="MM/YY" style="flex:1">
+                    <input id="cardCVV" type="password" placeholder="CVV" style="width:80px">
+                </div>
+                <button id="cardPayBtn" onclick="completePayment()">Pay</button>
+            </div>
+
+            <div id="cashFields" class="payment-fields hidden">
+                <p>Pay with cash at pickup/delivery.</p>
+                <button id="cashConfirmBtn" onclick="completePayment()">Confirm Cash Order</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About ASTI CANTEEN</h2>
+
+        <!-- Logo (place the provided image file as 'asti-logo.png' in the same folder) -->
+        <img id="astiLogo" src="ASTI.png" alt="ASTI Canteen Logo">
+
+        <p>
+            ASTI Canteen is the official college food service facility dedicated to providing fresh, hygienic, and affordable meals for students and staff. We believe that quality food plays an essential role in supporting a healthy and productive academic environment.
+        </p>
+
+        <p>
+            Our team ensures high standards of cleanliness, food safety, and preparation quality in every meal we serve. From quick snacks to complete meals, we offer a wide range of options designed to satisfy diverse tastes while maintaining consistent quality and reasonable pricing.
+        </p>
+
+        <p>
+            At ASTI Canteen, customer satisfaction is our priority. We continuously work to improve our services and create a welcoming space where everyone can enjoy delicious food in a comfortable atmosphere.
+        </p>
+
+        <h3>Contact Us</h3>
+        <p>For inquiries, feedback, or suggestions, please feel free to reach out to us:</p>
+
+        <div class="contact-info">
+            <p>📧 Email: <a href="mailto:info@asticanteen.com">info@asticanteen.com</a></p>
+            <p>📍 Location: ASTI College Campus</p>
+            <p>📞 Phone: <a href="tel:+917075471558">+91-7075471558</a></p>
+            <p>We value your feedback and look forward to serving you.</p>
+        </div>
+
+    </section>
+
+    <!-- Location removed as requested -->
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 ASTI CANTEEN | All Rights Reserved</p>
+    </footer>
+
+    <script src="ASTI.js"></script>
+
+</body>
+</html>
